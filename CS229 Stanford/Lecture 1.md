@@ -1,3 +1,5 @@
+This is a high-level intro lecture. Not diving into the nitty-gritty, but shows some of the promise of what's to come.
+
 Some software problems are hard to programmatically derive; those same problems are made easier through applying a learning algorithm.
 
 Ng's goals for the course:
@@ -47,6 +49,7 @@ Hand unstructured data to an algorithm to make sense of.
 ## Clustering
 Routinely used for many different problems
 ## Deep Learning
+## Reinforcement Learning
 
 
 [^1]: A finite number of values (i.e. categories/buckets)
