@@ -44,6 +44,10 @@ Takes data and maps it to an infinite dimensional space, then performs classific
 * How much training data is needed?
 # Unsupervised Learning
 Hand unstructured data to an algorithm to make sense of.
+## Clustering
+Routinely used for many different problems
+## Deep Learning
+
 
 [^1]: A finite number of values (i.e. categories/buckets)
 [^2]: A potentially infinite number of values
