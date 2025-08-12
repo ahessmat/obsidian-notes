@@ -30,6 +30,21 @@ Defined by Arthur Samuel (1959). Machine Learning: field of study that gives com
 We provide the algorithm a dataset that is appropriately labeled. The algorithm, in turn, learns the association between the inputs and the outputs to predict more correct answers.
 
 ## Regression Problems
-A variable we're trying to predict is a along a continuous value (e.g. housing prices vs. square size).
+A variable we're trying to predict is a along a **continuous** value (e.g. housing prices vs. square size).
 ## Classification Problems
-Predicting a **discrete** value as opposed to a **continuous** one.
+Predicting a discrete [^1] value as opposed to a **continuous** [^2] one.
+### Support Vector Machines (SVM)
+Takes data and maps it to an infinite dimensional space, then performs classification using an infinite number of features.
+
+==**I don't know what Ng means by this right now; we'll come back to that.**==
+
+# Learning Theory
+* Seek to prove a theorem to guarantee a learning algorithm will work
+* Understand what algorithms can approximate different functions well
+* How much training data is needed?
+# Unsupervised Learning
+Hand unstructured data to an algorithm to make sense of.
+
+[^1]: A finite number of values (i.e. categories/buckets)
+[^2]: A potentially infinite number of values
+
