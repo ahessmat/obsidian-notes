@@ -27,7 +27,13 @@ This is showing the hypothesis as a linear function of size (x). For multiple **
 
 The above algorithm assumes only 2 features, but we can simplify and generalize the algorithm into the equation below:
 $$h(x) = \sum_{i=0}^d \theta_i x_i = \theta^T x$$
-
+Goal: we want to minimize the difference between hypothesis ($h(x)$) and the real price ($y$) by choosing appropriate values for the $\theta$ parameter values. Put another way:
+$$(h_\theta(x) - y)^2$$
+Or rather, the cost function as:
+$$
+J(\theta) = \frac{1}{2} \sum_{i=1}^{n} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right)^2
+$$
+==**Why do we place the 1/2 constant in front? According to Ng: "When we take derivatives to minimize this later, putting a one-half there would make some of the math a little bit simpler."**==
 
 
 
