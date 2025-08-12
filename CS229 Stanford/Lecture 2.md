@@ -29,14 +29,31 @@ The above algorithm assumes only 2 features, but we can simplify and generalize 
 $$h(x) = \sum_{i=0}^d \theta_i x_i = \theta^T x$$
 Goal: we want to minimize the difference between hypothesis ($h(x)$) and the real price ($y$) by choosing appropriate values for the $\theta$ parameter values. Put another way:
 $$(h_\theta(x) - y)^2$$
-Or rather, the cost function as:
+==**Why the square? Why not as-is? Why not raised to the power of 4? According to Ng: "We'll talk more about that when we talk about the generalization of linear regression; LR is a special case of a bigger family of models called generalizing corresponding to Gaussian models."**==
+
+Or rather, the **cost function** as:
 $$
 J(\theta) = \frac{1}{2} \sum_{i=1}^{n} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right)^2
 $$
 ==**Why do we place the 1/2 constant in front? According to Ng: "When we take derivatives to minimize this later, putting a one-half there would make some of the math a little bit simpler."**==
 
+# Gradient Descent
+* Start with some value $\theta$ (e.g. $\theta = \vec{0}$, or **theta** is a vector with all zero values).
+* Repeatedly change $\theta$ in order to reduce $J(\theta)$. 
 
+![[Pasted image 20250812150926.png]]
 
+Given a starting point (the X, above), look 360 around and pick a small step in the direction that moves steepest downhill.
+
+Cautionary note: it's possible that you won't find the **global optimum** this way, merely a **local optimum** (see below for example). Ng says that **linear regression** using gradient descent will always arrive at global optimum.
+
+![[Pasted image 20250812151144.png]]
+
+==**Why would it always arrive at global optimum?**==
+
+The gradient descent algorithm can be denoted as:
+
+$\theta_i := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$
 
 # Video Transcript
 Morning and welcome back. So what we'll see today in class is the first in-depth discussion of a learning algorithm, linear regression, and in particular, over the next, what, hour and a bit you'll see linear regression, batch and stochastic gradient descent is an algorithm for fitting linear regression models, and then the normal equations, um, uh, as a way of- as a very efficient way to let you fit linear models. Um, and we're going to define notation, and a few concepts today that will lay the foundation for a lot of the work that we'll see the rest of this quarter. 
