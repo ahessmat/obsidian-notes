@@ -6,8 +6,24 @@
 > -Ng
 
 # Linear Regression
-How do we represent our Hypothesis ($$h_\theta(x)$$)
+How do we represent our Hypothesis ($h_\theta(x)$)?
+
+Like so!
 $$h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2$$
+This is showing the hypothesis as a linear function of size (x). For multiple **features** (e.g. sqr feet, number of bedrooms, etc.) there might be multiple inputs (x1, x2, etc.). There are likewise multiple corresponding theta ($\theta$) values which serve as the tuning **parameters**.
+
+The above algorithm assumes only 2 features, but we can simplify and generalize the algorithm into the equation below:
+$$h(x) = \sum_{i=0}^d \theta_i x_i = \theta^T x$$
+
+Other nomenclature:
+
+* m = # of training examples (i.e. # of rows in table)
+* x = inputs/features
+* y = output (aka target variable)
+* (x,y) = a single training example
+* $(x^(i) , y^(i))$
+* 
+
 
 
 # Video Transcript
