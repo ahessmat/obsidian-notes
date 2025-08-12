@@ -5,6 +5,19 @@
 > what is the workflow? What is the data-set? What is the hypothesis? How does this represent the hypothesis? These are the key decisions you have to make in pretty much every supervised learning, every machine learning algorithm's design. 
 > -Ng
 
+# Notation
+
+* m = # of training examples (i.e. # of rows in table)
+* n = # of features
+* x = inputs/features
+* y = output (aka target variable)
+* (x,y) = a single training example
+* $(x^{(i)}, y^{(i)})$ = The ith training example; the (i) reflects the index only. Can go up to m.
+
+Given:
+![[Pasted image 20250812000131.png]]
+
+Then $x_1^{(1)}$ would be 2104, as it is the first indexed row of our first feature (sq. feet).
 # Linear Regression
 How do we represent our Hypothesis ($h_\theta(x)$)?
 
@@ -15,14 +28,7 @@ This is showing the hypothesis as a linear function of size (x). For multiple **
 The above algorithm assumes only 2 features, but we can simplify and generalize the algorithm into the equation below:
 $$h(x) = \sum_{i=0}^d \theta_i x_i = \theta^T x$$
 
-Other nomenclature:
 
-* m = # of training examples (i.e. # of rows in table)
-* x = inputs/features
-* y = output (aka target variable)
-* (x,y) = a single training example
-* $(x^(i) , y^(i))$
-* 
 
 
 
