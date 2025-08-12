@@ -57,10 +57,20 @@ $$\theta_i := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
 * In the notation above the `:=` value denotes performing the function on the right-side and assigning it to the value on the left-side.
 * $\theta_j$ refers to an indexed feature (i.e. feature 0, feature 1, feature 2, ... , feature n)
 * $\alpha$ is the learning rate
-* $\frac{\partial}{\partial \theta_j}$ is a partial derivative of the cost function ($J(\theta)$)
+	* What should this be set at?
+	* Ng suggests a value between -1 and 1. In practice, he starts at 0.01 and then increases/decreases.
+* $\frac{\partial}{\partial \theta_j}$ is a partial derivative[^1] of the cost function ($J(\theta)$)
+
+Consult the lecture video at this timestamp:
+https://youtu.be/4b4MUYve_U8?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU&t=1635
+
+In order to review how the partial derivative term is worked-out. Ultimately however, this becomes:
+
+$$\theta_j := \theta_j + \alpha (y^{(i)} - h_\theta(x^{(i)})) x_j^{(i)}$$
 
 
 
+[^1]: The derivative of a function defines the direction of steepest descent.
 # Video Transcript
 Morning and welcome back. So what we'll see today in class is the first in-depth discussion of a learning algorithm, linear regression, and in particular, over the next, what, hour and a bit you'll see linear regression, batch and stochastic gradient descent is an algorithm for fitting linear regression models, and then the normal equations, um, uh, as a way of- as a very efficient way to let you fit linear models. Um, and we're going to define notation, and a few concepts today that will lay the foundation for a lot of the work that we'll see the rest of this quarter. 
 
