@@ -89,14 +89,31 @@ $$(h_\theta(x) - y) * x_j$$
 $$\theta_j := \theta_j - \alpha (h_\theta(x) - y) * x_j$$
 6. Multiplying the negative sign across the gradient descent update step and summing across *all* $m$ training examples gets us:
 $$\theta_j := \theta_j + \alpha \sum_{i=1}^{m} (y^{(i)} - h_\theta(x^{(i)})) x_j^{(i)}$$
-## The Idea
+## Batch Gradient Descent
+
+In summary:
+
 Repeat the following until convergence:
 $$\theta_j := \theta_j + \alpha \sum_{i=1}^{m} (y^{(i)} - h_\theta(x^{(i)})) x_j^{(i)}$$
 In each iteration of gradient descent, update j=0 through j=n
 
 If we do this, we should find a good value for the parameters $\theta$.
 
+The algorithm defined above is known more formally as "Batch Gradient Descent", where "batch" refers to looking at ALL the training examples as a batch.
+### Disadvantage
+Some training examples have huge datasets (e.g. many millions of examples). In order to make even a single gradient descent step, the entire database must be summed. This makes steps slow, especially if we must iterate thousands - or tens of thousands - of times over.
 
+## Stochastic Gradient Descent
+
+As an alternative to **batch gradient descent**:
+
+```
+Loop {
+	for i = 1 to n {
+		$\theta$
+	}
+}
+```
 
 
 
