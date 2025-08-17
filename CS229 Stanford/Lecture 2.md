@@ -77,12 +77,16 @@ $$\frac{\partial}{\partial \theta_j} J(\theta) = \frac{\partial}{\partial \theta
 $$2 \frac{1}{2}(h_\theta(x) - y) * \frac{2}{2\theta_j}(h_\theta(x) - y)$$
 3. Simplify and substitute definition of $h_\theta(x)$ (defined earlier at start of **Linear Regression**):
 $$(h_\theta(x) - y) * \frac{2}{2\theta_j}(\theta_0 + \theta_1 x_1 + \theta_2 x_2 + ... + \theta_n x_n - y)$$
-4. Observing that the partial derivative for all the $\theta$ values with respect to $\theta_j$ will be zero (0) EXCEPT for the term represented by `j`, then the partial derivative of that 
+4. Observing that the partial derivative for all the $\theta$ values with respect to $\theta_j$ will be zero (0) EXCEPT for the term represented by `j`, then the partial derivative of that term will be just $x_j$ (because no other theta is determined by $\theta_j$ other that). That makes the whole right side sum simply:
+$$(h_\theta(x) - y) * x_j$$
+5. Plugging the above back into our **gradient descent** algorithm, we then get:
+$$\theta_j := \theta_j - \alpha (h_\theta(x) - y) * x_j$$
+6. Multiplying the negative sign across the gradient descent update step and summing across *all* $m$ training examples gets us:
+$$\theta_j := \theta_j + \alpha \sum_{i=1}^{m} (y^{(i)} - h_\theta(x^{(i)})) x_j^{(i)}$$
 
 
 Ultimately however, this becomes:
 
-$$\theta_j := \theta_j + \alpha (y^{(i)} - h_\theta(x^{(i)})) x_j^{(i)}$$
 
 
 
