@@ -51,6 +51,8 @@ Cautionary note: it's possible that you won't find the **global optimum** this w
 
 ==**Why would it always arrive at global optimum?**==
 
+This is later addressed at [34:10](https://youtu.be/4b4MUYve_U8?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU&t=2050): It turns out if the cost function ($J(\theta)$) is defined as a sum of square terms (which we'll see below in a moment), then the cost function is a **quadratic function** and therefore has no local optima (and is rather shaped like a big bowl vs. the rolling hills in the above graphic).  
+
 The gradient descent algorithm can be denoted as:
 
 $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
@@ -59,6 +61,8 @@ $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
 * $\alpha$ is the learning rate
 	* What should this be set at?
 	* Ng suggests a value between -1 and 1. In practice, he starts at 0.01 and then increases/decreases.
+	* Large values risk over-shooting the minima; small values require more iterations before arriving at minima.
+	* If the cost function ($J(\theta)$) is increasing over iterations, that's an indicator that our $\alpha$ is too large
 * $\frac{\partial}{\partial \theta_j}$ is a partial derivative[^1] of the cost function ($J(\theta)$)
 
 The above can be described as a search algorithm that starts at some "initial guess" for $\theta$, then repeatedly making changes to $\theta$ to make the cost function ($J(\theta)$) smaller until it it's minimized. 
@@ -83,9 +87,14 @@ $$(h_\theta(x) - y) * x_j$$
 $$\theta_j := \theta_j - \alpha (h_\theta(x) - y) * x_j$$
 6. Multiplying the negative sign across the gradient descent update step and summing across *all* $m$ training examples gets us:
 $$\theta_j := \theta_j + \alpha \sum_{i=1}^{m} (y^{(i)} - h_\theta(x^{(i)})) x_j^{(i)}$$
+## Idea
+Repeat the following until convergence:
+$$\theta_j := \theta_j + \alpha \sum_{i=1}^{m} (y^{(i)} - h_\theta(x^{(i)})) x_j^{(i)}$$
+In each iteration of gradient descent, update j=0 through j=n
+
+If we do this, we should find a good value for the parameters $\theta$.
 
 
-Ultimately however, this becomes:
 
 
 
