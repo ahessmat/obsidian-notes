@@ -22,7 +22,7 @@ Then $x_1^{(1)}$ would be 2104, as it is the first indexed row of our first feat
 How do we represent our Hypothesis ($h_\theta(x)$)?
 
 Like so!
-$$h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2$$
+$$h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + ... + \theta_n x_n$$
 This is showing the hypothesis as a linear function of size (x). For multiple **features** (e.g. sqr feet, number of bedrooms, etc.) there might be multiple inputs (x1, x2, etc.). There are likewise multiple corresponding theta ($\theta$) values which serve as the tuning **parameters**.
 
 The above algorithm assumes only 2 features, but we can simplify and generalize the algorithm into the equation below:
@@ -69,9 +69,16 @@ https://youtu.be/4b4MUYve_U8?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU&t=1635
 
 ...In order to review how the partial derivative term is worked-out. 
 
-Here's the intuition between figuring out the partial derivative:
+Here's the intuition between figuring out the partial derivative with one training example (vs. all $m$ training examples):
 
-$$\frac{\partial}{\partial \theta_j} J(\theta) = $$
+1. Recall that we already defined what $J(\theta)$ cost function was earlier in our **Linear Regression** overview. Because this is just 1 training example (vs. all) we can drop the $\sum_{i=1}^{n}$ . This becomes a basic substitution:
+$$\frac{\partial}{\partial \theta_j} J(\theta) = \frac{\partial}{\partial \theta_j} \frac{1}{2}(h_\theta(x) - y)^2$$
+2. From calculus, if you take the derivative of a square, the exponent comes down as a constant; then by the chain rule of derivatives we take the derivative of what's inside the square and multiply it out:
+$$2 \frac{1}{2}(h_\theta(x) - y) * \frac{2}{2\theta_j}(h_\theta(x) - y)$$
+3. Simplify and substitute definition of $h_\theta(x)$ (defined earlier at start of **Linear Regression**):
+$$(h_\theta(x) - y) * \frac{2}{2\theta_j}(\theta_0 + \theta_1 x_1 + \theta_2 x_2 + ... + \theta_n x_n - y)$$
+4. Observing that the partial derivative for all the $\theta$ values with respect to $\theta_j$ will be zero (0) EXCEPT for the term represented by `j`, then the partial derivative of that 
+
 
 Ultimately however, this becomes:
 
