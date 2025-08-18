@@ -8,10 +8,10 @@ Starts at [2:00](https://youtu.be/gqKaVgQxEJ0?list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z
 # Notation
 
 * $m$ = # of training examples (i.e. # of rows in table)
-* $n$ = # of features, sometimes referred to as $d$
+* $n$ = # of features
 * $x$ = input/feature
 	* $x \in \mathbb{R}^d$  for large $d$
-		* $d$ = the total number of features (all $x$)
+		* $d$ = the total number of parameters? (all $x$)
 		* Any given feature ($x$) is an element of $d$-dimensional real space (i.e. all possible vectors with $d$ real number components).
 	* There might be many features (theoretically infinite) and not all of them may be useful.
 		* Because we might not know which features are important, we may find theoretically infinite useful.
