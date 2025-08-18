@@ -123,6 +123,7 @@ In exchange for drifting towards the global minimum faster, the algorithm does r
 
 For **linear regression** and ONLY linear regression, there's an algorithm we can use that can solve the optimal parameters for $\theta$ in one step (vs. an iterative approach, like with **gradient descent**).
 
+==I need to mull over what I just listened to...probably revisit what a derivative is.==
 
 
 [^1]: The derivative of a function defines the direction of steepest descent.
