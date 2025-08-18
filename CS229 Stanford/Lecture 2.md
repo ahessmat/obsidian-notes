@@ -107,13 +107,14 @@ Some training examples have huge datasets (e.g. many millions of examples). In o
 
 As an alternative to **batch gradient descent**:
 
-```
+
 Loop {
 	for i = 1 to n {
-		$\theta$
+		$\theta_j := \theta_j - \alpha (h_\theta(x^i) - y^i) * x_j^i$     (for every j)
 	}
 }
-```
+
+Instead of scanning all $m$ examples before updating theta parameters, you update along each training example as it comes up. This leads to incremental changes much quicke
 
 
 
