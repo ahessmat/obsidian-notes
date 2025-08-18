@@ -114,8 +114,14 @@ Loop {
 	}
 }
 
-Instead of scanning all $m$ examples before updating theta parameters, you update along each training example as it comes up. This leads to incremental changes much quicke
+Instead of scanning all $m$ examples before updating theta parameters, you update along each training example as it comes up. This leads to incremental changes much quicker and - in practice - is used more often with very large (multi-million examples). According to Ng, he suggests reducing the learning rate $\alpha$ over time, making the adjustment steps smaller (and thereby helping assure the eventual final parameter is near global minimum with the least error).
 
+### Disadvantage
+In exchange for drifting towards the global minimum faster, the algorithm does risk never actually converge at the global optimum (compared to batch, which always will).
+
+# Normal Equations
+
+For **linear regression** and ONLY linear regression, there's an algorithm we can use that can solve the optimal parameters for $\theta$ in one step (vs. an iterative approach, like with **gradient descent**).
 
 
 
