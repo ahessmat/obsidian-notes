@@ -8,8 +8,8 @@ Starts at [2:00](https://youtu.be/gqKaVgQxEJ0?list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z
 # Notation
 
 * $m$ = # of training examples (i.e. # of rows in table)
-* $n$ = # of features
-* $x$ = inputs/features
+* $n$ = # of features, sometimes referred to as $d$
+* $x$ = input/feature
 	* $x \in \mathbb{R}^d$  for large $d$
 		* $d$ = the total number of features (all $x$)
 		* Any given feature ($x$) is an element of $d$-dimensional real space (i.e. all possible vectors with $d$ real number components).
@@ -50,7 +50,7 @@ $$h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + ... + \theta_n x_n$$
 	* We can take the data, embed it, and then train linear model on top ([apparently state-of-the-art?](https://youtu.be/gqKaVgQxEJ0?list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&t=1299) )
 
 ### Vector Notation
-We can take the parameters $\theta$ and the features $x$ and represent them as ve
+We can take the parameters $\theta$ and the features $x$ and represent them as vectors like so:
 
 $$
 \theta = 
@@ -70,8 +70,23 @@ x^{(i)}_1 \\
 x^{(i)}_d
 \end{bmatrix}
 $$
+Now we can make a matrix $X$ with one row $x$ for every training example:
 
+$$
+X =
+\begin{bmatrix}
+(x^{(1)}) \\
+(x^{(2)}) \\
+\vdots \\
+(x^{(n)})
+\end{bmatrix}
+\in \mathbb{R}^{\,n \times (d+1)}
+$$
 
+This matrix rests in real-space of $n$ rows against $d + 1$ dimensions (with the +1 accounting for $\theta_0x_0$ which evaluates to 1). This lets us look at our training examples as a matrix.
 
-
+## How do I find a good line?
+We want to minimize the error between our prediction ($h(x)$) and the real price ($y$). For computational/historical reasons, we will *square* of those residuals as:
+$$(h_\theta(x) - y)^2$$
+From this, we can derive the **cost function** $J(\theta)$ as:
 
