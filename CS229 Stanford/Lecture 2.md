@@ -88,5 +88,7 @@ This matrix rests in real-space of $n$ rows against $d + 1$ dimensions (with the
 ## How do I find a good line?
 We want to minimize the error between our prediction ($h(x)$) and the real price ($y$). For computational/historical reasons, we will *square* of those residuals as:
 $$(h_\theta(x) - y)^2$$
-From this, we can derive the **cost function** $J(\theta)$ as:
-
+From this, we can derive the **cost function** $J(\theta)$ as the sum of "least squares":
+$$
+J(\theta) = \frac{1}{2} \sum_{i=1}^{n} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right)^2
+$$
