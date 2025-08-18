@@ -92,3 +92,35 @@ From this, we can derive the **cost function** $J(\theta)$ as the sum of "least 
 $$
 J(\theta) = \frac{1}{2} \sum_{i=1}^{n} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right)^2
 $$
+## Gradient Descent
+The gradient descent algorithm can be denoted as:
+
+$$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$
+* In the notation above the `:=` value denotes performing the function on the right-side and assigning it to the value on the left-side.
+* $\theta_j$ refers to an indexed feature (i.e. feature 0, feature 1, feature 2, ... , feature n)
+* $\alpha$ is the learning rate
+	* What should this be set at?
+	* Ng suggests a value between -1 and 1. In practice, he starts at 0.01 and then increases/decreases.
+	* Large values risk over-shooting the minima; small values require more iterations before arriving at minima.
+	* If the cost function ($J(\theta)$) is increasing over iterations, that's an indicator that our $\alpha$ is too large
+* $\frac{\partial}{\partial \theta_j}$ is a partial derivative[^1] of the cost function ($J(\theta)$)
+
+The above can be described as a search algorithm that starts at some "initial guess" for $\theta$, then repeatedly making changes to $\theta$ to make the cost function ($J(\theta)$) smaller until it it's minimized. 
+
+Here's the intuition between figuring out the partial derivative with one training example (vs. all $m$ training examples):
+
+1. Recall that we already defined what $J(\theta)$ cost function was earlier in our **Linear Regression** overview. Because this is just 1 training example (vs. all) we can drop the $\sum_{i=1}^{n}$ . This becomes a basic substitution:
+$$\frac{\partial}{\partial \theta_j} J(\theta) = \frac{\partial}{\partial \theta_j} \frac{1}{2}(h_\theta(x) - y)^2$$
+2. From calculus, if you take the derivative of a square, the exponent comes down as a constant; then by the chain rule of derivatives we take the derivative of what's inside the square and multiply it out:
+$$2 \frac{1}{2}(h_\theta(x) - y) * \frac{2}{2\theta_j}(h_\theta(x) - y)$$
+3. Simplify and substitute definition of $h_\theta(x)$ (defined earlier at start of **Linear Regression**):
+$$(h_\theta(x) - y) * \frac{2}{2\theta_j}(\theta_0 + \theta_1 x_1 + \theta_2 x_2 + ... + \theta_n x_n - y)$$
+4. Observing that the partial derivative for all the $\theta$ values with respect to $\theta_j$ will be zero (0) EXCEPT for the term represented by `j`, then the partial derivative of that term will be just $x_j$ (because no other theta is determined by $\theta_j$ other than that). That makes the whole right side sum simply:
+$$(h_\theta(x) - y) * x_j$$
+5. Plugging the above back into our **gradient descent** algorithm, we then get:
+$$\theta_j := \theta_j - \alpha (h_\theta(x) - y) * x_j$$
+6. Multiplying the negative sign across the gradient descent update step and summing across *all* $m$ training examples gets us:
+$$\theta_j := \theta_j + \alpha \sum_{i=1}^{n} (y^{(i)} - h_\theta(x^{(i)})) x_j^{(i)}$$
+This last result is what's known as **batch gradient descent**.
+### Batch vs. Stochastic Minibatch
+Summing over all features can be computationally expensive for even a single **learning step** $\alpha$. Modern models may be trained on millions or billions of data points. 
