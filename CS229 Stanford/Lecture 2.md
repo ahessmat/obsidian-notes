@@ -39,5 +39,39 @@ Given the above, find a ==good== $h$ (hypothesis) that predicts $x$ -> $y$.
 
 Supervised Machine Learning is NOT interested in interpolation; it's not predicting back on just the ${(x,y)}$ pairs that we have in the **training set**. We want to leverage what was learned in the **training set** to **generalize** against *new* inputs $x$.
 
+## How do we represent our hypothesis?
+$$h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + ... + \theta_n x_n$$
+* $\theta_i$: "Theta", which will serve as a kind of weigh (aka "parameter") for various **features** ($x$) I've identified.
+	* Features may be things like sqr ft. of a home, # of bedrooms, etc.
+		* $x_1^{(1)}$: the size of the home in the first training set example
+		* $x_2^{(1)}$: the number of bedrooms in the first training set example
+		* ...etc.
+* The number of $\theta x$ pairs makes this a **high dimension problem**.
+	* We can take the data, embed it, and then train linear model on top ([apparently state-of-the-art?](https://youtu.be/gqKaVgQxEJ0?list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&t=1299) )
+
+### Vector Notation
+We can take the parameters $\theta$ and the features $x$ and represent them as ve
+
+$$
+\theta = 
+\begin{bmatrix}
+\theta_0 \\
+\theta_1 \\
+\theta_2 \\
+\vdots \\
+\theta_d
+\end{bmatrix},
+\quad
+x^{(i)} =
+\begin{bmatrix}
+x^{(i)}_0 \\
+x^{(i)}_1 \\
+\vdots \\
+x^{(i)}_d
+\end{bmatrix}
+$$
+
+
+
 
 
