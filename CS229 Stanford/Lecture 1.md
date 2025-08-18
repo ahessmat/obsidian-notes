@@ -9,7 +9,7 @@ Starting at [11:42](https://youtu.be/KzH1ovd4Ots?list=PLoROMvodv4rNH7qL6-efu_q2_
 		* Recent advances in ML has been what has elevated AI/ML as a discipline.
 		* Deep Learning is a subset of ML
 
-Machine Learning is typically a mix of:
+CS229 Machine Learning is typically a mix of:
 * Supervised Learning
 * Unsupervised Learning
 * Reinforcement Learning
@@ -73,3 +73,15 @@ Specify cluster count, have algorithm identify clusters.
 	* This can be useful to group papers together by topic, based on the kinds of words that appear
 * Word Embeddings
 	* Words can be encoded as vectors and - it turns out - words may have similar vectors.
+* Large Language Models
+	* Trained on very large language datasets
+		* A single model is massive, costing tens of millions to create
+			* In turn however, they can be applied in a lot of ways
+# Reinforcement Learning
+
+Last in the lecture 2022 lecture series.
+
+Unlike (Un)supervised Learning (which are about making predictions $y$), RL is about making sequential `decisions`.
+
+There's a loop of collecting data interactively. A strategy is tried, feedback is collected and trained against, and then the strategy is revised and retried.
+
