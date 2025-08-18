@@ -9,3 +9,16 @@ Starting at [11:42](https://youtu.be/KzH1ovd4Ots?list=PLoROMvodv4rNH7qL6-efu_q2_
 		* Recent advances in ML has been what has elevated AI/ML as a discipline.
 		* Deep Learning is a subset of ML
 
+# Notation
+
+* $m$ = # of training examples (i.e. # of rows in table)
+* $n$ = # of features
+* $x$ = inputs/features
+* $y$ = output (aka target variable)
+* (x,y) = a single training example
+* $(x^{(i)}, y^{(i)})$ = The ith training example; the (i) reflects the index only. Can go up to m.
+
+Given:
+![[Pasted image 20250812000131.png]]
+
+Then $x_1^{(1)}$ would be 2104, as it is the first indexed row of our first feature (sq. feet).
