@@ -22,3 +22,4 @@ and then later deactivate it with
 conda deactivate
 ```
 
+Our machine 
