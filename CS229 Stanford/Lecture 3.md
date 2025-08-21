@@ -43,3 +43,10 @@ Concerning $\epsilon^{(i)}$, we write $\epsilon^{(i)} \sim N{(\mu,\sigma^2)}$
 	* Within 1 $\sigma$, we'd account for 68.27% of samples
 	* Within 2 $\sigma$, we'd account for 95.45%
 
+# Why not Linear Regression?
+![[Pasted image 20250820225603.png]]
+
+In the lecture, it's noted that a linear regression line **might** work in *some* cases, but what happens when we have examples that fall in the extremes? Accounting for those residuals forces the line to readjust, ultimately making it less accurate.
+
+Such circumstances make it better to go with a classifier instead.
+
