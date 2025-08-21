@@ -50,3 +50,14 @@ In the lecture, it's noted that a linear regression line **might** work in *some
 
 Such circumstances make it better to go with a classifier instead.
 
+# Logistic Regression
+![[Pasted image 20250820230422.png]]
+$$h_\theta(x) \in [0,1]$$ Responses will rest somewhere in the space 0 and 1.
+
+$$h_\theta(x) = g(\theta^Tx) = {(1 + e^{(-\theta^Tx)})}^{-1}$$
+$$g(z) = \frac{1}{1 + e^{-z}}$$
+The function $g(z)$ is a link function.
+* Our model will still be linear in its features ${(\theta^Tx)}$, but we're going to feed it through a non-linearity
+	* It will saturate when it gets too big/small (forcing to 0,1)
+	* A sigmoid function
+
