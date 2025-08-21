@@ -35,6 +35,11 @@ Assume $y^{(i)} = \theta^Tx^{(i)} + \epsilon^{(i)}$
 			* Knowing the error for one tuple doesn't mean anything for another
 		* No single area of noise is any more "noisy" than any other (lest it could be accounted for in the model)
 # Gaussian/Normal Distribution
-![[Pasted image 20250820222713.png]]
+![[Pasted image 20250820222811.png]]
 
+Concerning $\epsilon^{(i)}$, we write $\epsilon^{(i)} \sim N{(\mu,\sigma^2)}$
+* The error is drawn (~) / distributed to the normal distribution (where $\mu$ is the mean and $\sigma^2$ is the variance)
+* Having a lot of tiny little errors added up end up looking Gaussian
+	* Within 1 $\sigma$, we'd account for 68.27% of samples
+	* Within 2 $\sigma$, we'd account for 95.45%
 
