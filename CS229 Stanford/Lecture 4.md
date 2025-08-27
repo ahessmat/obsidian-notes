@@ -117,4 +117,5 @@ These are all design assumptions we can make in our models.
 		1. If your model is large with huge number of features everything becomes linear in that space
 		2. If you take your data and put it up into a huge dimensional space, odds are it will be linearly separable - a line through it
 3. Inference is easy
-	1. Output $E[y|x;\theta]$ i.e. $h_\theta(x)
+	1. Output $E[y|x;\theta]$ i.e. $h_\theta(x) = E[y|x;\theta]$
+		1. Inference is just returning the probability that $y$ has a particular value
