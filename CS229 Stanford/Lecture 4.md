@@ -115,4 +115,6 @@ These are all design assumptions we can make in our models.
 2. $\eta = \theta^Tx$ are of the following form: $\theta \in \mathbb{R}^{(d+1)}, x \in \mathbb{R}^{(d+1)}$
 	1. Make the assumption that - subject to noise - our model varies linearly with some underlying feature
 		1. If your model is large with huge number of features everything becomes linear in that space
-		2. If you take your data and put it up into a hug
+		2. If you take your data and put it up into a huge dimensional space, odds are it will be linearly separable - a line through it
+3. Inference is easy
+	1. Output $E[y|x;\theta]$ i.e. $h_\theta(x)
