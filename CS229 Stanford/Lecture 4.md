@@ -74,5 +74,12 @@ $$
 To convert it from the first form ($p(y; \mu) = \frac{1}{\sqrt{2\pi}} \exp( -\frac{1}{2} (y - \mu)^2$) to the second ($\frac{1}{\sqrt{2\pi}} \exp\left( -\frac{1}{2} y^2 \right) \cdot \exp( \mu y - \frac{1}{2} \mu^2$), we had to do a couple steps:
 
 1. We expanded the square in the exponent
-
 $$(y - \mu)^2 = y^2 - 2y\mu + \mu^2$$
+2. We distributed the $-\frac{1}{2}$:
+$$-\frac{1}{2}(y^2 - 2y\mu + \mu^2) = -\frac{1}{2}y^2 + y\mu - \frac{1}{2}\mu^2$$
+3. For transparency, we rearrange terms before putting the simplified exponent back into the exponential (we didn't have to, but it helps for visual):
+$$-\frac{1}{2}y^2 + y\mu - \frac{1}{2}\mu^2 = -\frac{1}{2}y^2 + \mu y - \frac{1}{2}\mu^2$$
+$$p(y; \mu) = \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{1}{2}y^2 + \mu y - \frac{1}{2}\mu^2\right)$$
+4. We split the exponential using $e^{a+b} = e^a * e^b$. This property works because when you multiply exponentials with the same base, you add the exponents.
+$$p(y; \mu) = \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{1}{2}y^2\right) \cdot \exp\left(\mu y - \frac{1}{2}\mu^2\right)$$
+
