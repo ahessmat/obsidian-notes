@@ -70,6 +70,14 @@ p(y; \mu) &= \frac{1}{\sqrt{2\pi}} \exp\left( -\frac{1}{2} (y - \mu)^2 \right) \
 &= \frac{1}{\sqrt{2\pi}} \exp\left( -\frac{1}{2} y^2 \right) \cdot \exp\left( \mu y - \frac{1}{2} \mu^2 \right)
 \end{aligned}
 $$
+Recalling our exponential family form as:
+$$P{(y;\eta)} = b(y)\ exp\{\eta^T T(y) - a(\eta)\}$$
+This would make:
+* $\eta$ = $\mu$
+* $T(y) = y$
+* $a(\eta) = \frac{\mu^2}{2} = \frac{\eta^2}{2}$
+* $b(y) = \frac{1}{\sqrt{2\pi}} \exp\left( -\frac{1}{2} y^2 \right)$
+
 ### Math rundown
 To convert it from the first form ($p(y; \mu) = \frac{1}{\sqrt{2\pi}} \exp( -\frac{1}{2} (y - \mu)^2$) to the second ($\frac{1}{\sqrt{2\pi}} \exp\left( -\frac{1}{2} y^2 \right) \cdot \exp( \mu y - \frac{1}{2} \mu^2$), we had to do a couple steps:
 
@@ -82,4 +90,11 @@ $$-\frac{1}{2}y^2 + y\mu - \frac{1}{2}\mu^2 = -\frac{1}{2}y^2 + \mu y - \frac{1}
 $$p(y; \mu) = \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{1}{2}y^2 + \mu y - \frac{1}{2}\mu^2\right)$$
 4. We split the exponential using $e^{a+b} = e^a * e^b$. This property works because when you multiply exponentials with the same base, you add the exponents.
 $$p(y; \mu) = \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{1}{2}y^2\right) \cdot \exp\left(\mu y - \frac{1}{2}\mu^2\right)$$
+## Why do we care about this form?
 
+1. Inference is easy
+	1. $E[y:n] = \frac{\partial}{\partial\eta}*a(\eta)$
+		1. ==What does this mean?==
+	2. $var[y:n] = \frac{\partial^2}{\partial^2\eta}*a(\eta)$
+		1. The variance is also the second derivative of $a(\eta)$
+	3. The above is interesting because once you take your distribution - however wild it may be - 
