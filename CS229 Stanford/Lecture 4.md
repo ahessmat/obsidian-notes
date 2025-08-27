@@ -32,7 +32,7 @@ The above suggests that our probability distribution ($P(y;\eta)$) can be writte
 	* Does not depend on $y$
 	* Picked to normalize the probability
 	* Scalar function
-## Examples
+## Example 1
 
 Bernoulli random variable (e.g. a weighted coin flip). It represents a trial with exactly **two possible outcomes**:
 
@@ -43,3 +43,36 @@ $$Var(X) = p(1-p)$$
 $$P(y_j ; \phi) = \phi^{y}(1 - \phi)^{1 - y}$$
 Above: probability of y = 1 is $\phi^y$ and when y = 0 its $(1 - \phi)^{1 - y}$
 
+Taking the above, we can show it in the form $P{(y;\eta)} = b(y)\ exp\{\eta^T T(y) - a(\eta)\}$:
+
+$$\begin{aligned}
+p(y;\phi) &= \phi^{y}(1-\phi)^{1-y} \\
+&= \exp\!\big(y \log \phi + (1-y)\log(1-\phi)\big) \\
+&= \exp\!\left(\left(\log \frac{\phi}{1-\phi}\right) y + \log(1-\phi)\right)
+\end{aligned}$$
+Where:
+* $\eta = \log \frac{\phi}{1-\phi}$ 
+* $T(y) = y$
+* $a(\eta) = \log(1-\phi)$
+
+Why does this matter?
+
+> Given a probability distribution in one form (e.g. $P(y_j ; \phi) = \phi^{y}(1 - \phi)^{1 - y}$), I'm going to translate it into a same functional form such that it satisfies the **Exponential Family** conditions (i.e. $b(y)\ exp\{\eta^T T(y) - a(\eta)\}$). In that case, the $\eta$ becomes the "natural parameters". You're typically not given a function in terms of natural parameters...if you can do this mapping however, then a bunch of stuff becomes easy because now you can do gradient descent on these parameters and its going to be concave.
+
+-Re
+
+## Example 2
+
+**Gaussian w/ fixed variance**
+
+$$\begin{aligned}
+p(y; \mu) &= \frac{1}{\sqrt{2\pi}} \exp\left( -\frac{1}{2} (y - \mu)^2 \right) \\
+&= \frac{1}{\sqrt{2\pi}} \exp\left( -\frac{1}{2} y^2 \right) \cdot \exp\left( \mu y - \frac{1}{2} \mu^2 \right)
+\end{aligned}
+$$
+### Math rundown
+To convert it from the first form ($p(y; \mu) = \frac{1}{\sqrt{2\pi}} \exp( -\frac{1}{2} (y - \mu)^2$) to the second ($\frac{1}{\sqrt{2\pi}} \exp\left( -\frac{1}{2} y^2 \right) \cdot \exp( \mu y - \frac{1}{2} \mu^2$), we had to do a couple steps:
+
+1. We expanded the square in the exponent
+
+$$(y - \mu)^2 = y^2 - 2y\mu + \mu^2$$
