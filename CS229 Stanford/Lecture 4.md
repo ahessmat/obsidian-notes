@@ -97,4 +97,22 @@ $$p(y; \mu) = \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{1}{2}y^2\right) \cdot \exp\
 		1. ==What does this mean?==
 	2. $var[y:n] = \frac{\partial^2}{\partial^2\eta}*a(\eta)$
 		1. The variance is also the second derivative of $a(\eta)$
-	3. The above is interesting because once you take your distribution - however wild it may be - 
+	3. The above is interesting because once you take your distribution - however wild it may be - by putting them into this form, you have a mechanical way to do inference (important), because that means we can do **learning**
+2. Learning is "well defined" being concave to $\eta$
+	1. MLE with regard to $\eta$ is concave.
+# Generalized Linear Models
+
+These are all design assumptions we can make in our models.
+
+1. $y | x; \theta ~ Exponential Family (\eta)$
+	1. The distribution of our labels - given $x$ for some parameters $\theta$ - follows Exponential Family
+		1. Re asserts this is an important family; many different data types fall into this family
+			1. Binary (y = 1,0) = Bernoulli
+			2. Real values = Gaussian
+			3. Counts (e.g. how many packets arrive at a server) = Poisson (sp?)
+			4. Real positive line = Gamma expansion
+			5. Dirichlet = Dirichlet
+2. $\eta = \theta^Tx$ are of the following form: $\theta \in \mathbb{R}^{(d+1)}, x \in \mathbb{R}^{(d+1)}$
+	1. Make the assumption that - subject to noise - our model varies linearly with some underlying feature
+		1. If your model is large with huge number of features everything becomes linear in that space
+		2. If you take your data and put it up into a hug
