@@ -119,3 +119,12 @@ These are all design assumptions we can make in our models.
 3. Inference is easy
 	1. Output $E[y|x;\theta]$ i.e. $h_\theta(x) = E[y|x;\theta]$
 		1. Inference is just returning the probability that $y$ has a particular value
+
+For clarity:
+
+1. Data $x$ is fed into a **linear model**
+2. The linear model computes $\theta^Tx$ , converting $\theta^T$ into $\eta$
+3. $\eta$ is fed into our **exponential model**
+4. From the exponential model...
+	1. If we want to train, we do $\max_{\theta} \; \log p(y \mid x; \theta)$
+	2. If we want to do inference, we do $E[y;x;\theta]$
