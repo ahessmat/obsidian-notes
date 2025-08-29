@@ -131,4 +131,13 @@ For clarity:
 
 And for logistic regression
 
-1. Model parameter $
+1. Model parameter $\theta$ is what we're going to solve with respect to; the thing we're going to do **gradient descent on**.
+2. $\theta$ is then dotted into the model with data ($\theta^Tx$), this is what becomes the **natural parameter** ($\eta$)
+3. The exponential model tells us how to operate on $\eta$, which will tell me the distribution.
+	1. By putting **canonical parameters** ($g$) such as Bernoulli's $\phi$ into natural parameter terms, learning/inference becomes the nice simple rules of:
+
+**Learning:**
+$$\theta_j := \theta_j + \alpha \sum_{i=1}^{n} (y^{(i)} - h_\theta(x^{(i)})) x_j^{(i)}$$
+**Inference:**
+$$h_\theta(x) = E[y|x;\theta]$$
+# Multiclass via Softmax (MultiNomial)
