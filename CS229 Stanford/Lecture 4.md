@@ -128,3 +128,7 @@ For clarity:
 4. From the exponential model...
 	1. If we want to train, we do $\max_{\theta} \; \log p(y \mid x; \theta)$
 	2. If we want to do inference, we do $E[y;x;\theta]$
+
+And for logistic regression
+
+1. Model parameter $
