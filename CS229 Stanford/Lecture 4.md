@@ -200,3 +200,6 @@ When you get a point, you're going to compute its value against each vector, exp
 $$
 P(y = k \mid x; \theta) = \frac{\exp(\theta_k \cdot x)}{\sum_{j=1}^{K} \exp(\theta_j \cdot x)}
 $$
+This - in most cases - returns a single class probability greater than others (which suggests it is most probably something).
+
+The above follows that we want to minimize **Cross Entropy** 
