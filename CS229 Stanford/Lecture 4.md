@@ -187,3 +187,11 @@ $$
 \quad
 \text{BUS}
 $$
+This gives a graph not unlike:
+
+![[Pasted image 20250829170553.png]]
+
+The above allows us to draw lines separating these vectors, thereby allowing us to classify things given arbitrary points.
+
+==How do we pick what these lines should be?==
+
