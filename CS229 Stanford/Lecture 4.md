@@ -195,3 +195,8 @@ The above allows us to draw lines separating these vectors, thereby allowing us 
 
 ==How do we pick what these lines should be?==
 
+When you get a point, you're going to compute its value against each vector, exponentiate it, the normalize the values for probabilities.
+
+$$
+P(y = k \mid x; \theta) = \frac{\exp(\theta_k \cdot x)}{\sum_{j=1}^{K} \exp(\theta_j \cdot x)}
+$$
