@@ -203,3 +203,10 @@ $$
 This - in most cases - returns a single class probability greater than others (which suggests it is most probably something).
 
 The above follows that we want to minimize **Cross Entropy** 
+$$\begin{aligned}
+Cross Entropy &= - \sum_{i=1}^{k} P(y = k) \, \log \hat{P}(y) \\
+&= -log(\hat{P}(y_i)) \\
+&= \frac{exp(\theta^T_ix)}{\sum_{j=1}^{K}exp(\theta^T_jx)}
+\end{aligned}
+$$
+Where a **logit** $= -log(\hat{P}(y_i))$ and the last 
