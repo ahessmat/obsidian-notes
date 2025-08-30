@@ -141,3 +141,49 @@ $$\theta_j := \theta_j + \alpha \sum_{i=1}^{n} (y^{(i)} - h_\theta(x^{(i)})) x_j
 **Inference:**
 $$h_\theta(x) = E[y|x;\theta]$$
 # Multiclass via Softmax (MultiNomial)
+
+> You train models on a variety of tasks - more broadly than the variety of classes - you train them to do many things at once...The thing we seem to be doing as a field right now is training a model to do some task "A" and then using it for task "B", which is making the model more robust.
+> -Re
+
+Example of above: predicting next word in a sentence. Every token is a class (i.e. the word "dog", "cat", etc.) and within a vocabulary of 50k+ words, we predict the next word to follow after a space. This turns the entire web into a training corpus because now any piece of text we can evaluate in a multiclass way. As a result, the model can write code, answer Qs in a narrative form, etc.
+
+* **Discrete values** up to some $k$ (e.g. {cat, dog, car, bus} $k$ = 4)
+	* Encoded as a **one-hot vector**, where the error distribution is $y \in \{0,1\}^k$ such that $\sum_{i=1}^{k} y_i = 1$
+		* There's a vector with values of 0 or 1, but precisely 1 thing is lit up
+$$
+\begin{bmatrix}
+1 \\
+0 \\
+0 \\
+0
+\end{bmatrix}
+\quad
+\text{CAT}
+\qquad
+\begin{bmatrix}
+0 \\
+1 \\
+0 \\
+0
+\end{bmatrix}
+\quad
+\text{DOG}
+\qquad
+\begin{bmatrix}
+0 \\
+0 \\
+1 \\
+0
+\end{bmatrix}
+\quad
+\text{CAR}
+\qquad
+\begin{bmatrix}
+0 \\
+0 \\
+0 \\
+1
+\end{bmatrix}
+\quad
+\text{BUS}
+$$
