@@ -14,7 +14,6 @@ We can apply the Bayes rule to compute $p(y|x)$ as:
 $$p(y|x) = \frac{p(x|y)p(y)}{p(x)}$$
 ## Math
 
-1. The Probability Rule
 The **product rule of probability** states:
 $$p(a|b) = \frac{p(a,b)}{p(b)}$$
 > The joint probability of $a$ and $b$ can be written as "probability of one given the other multiplied by the probability of the other".
@@ -22,5 +21,20 @@ $$p(a|b) = \frac{p(a,b)}{p(b)}$$
 Put another way:
 $$p(x,y) = p(x|y)p(y)$$
 and
-$$p(y,x) = p(y|x)p(x)$$
+$$p(x,y) = p(y|x)p(x)$$
 Ergo
+$$p(x|y)p(y) = p(y|x)p(x)$$
+Dividing both sides by $p(x)$ gets us the result for $p(y|x)$.
+
+## Continuing
+
+Consider 2 instantiations of this:
+
+* Continuous inputs $x$ (GDA)
+* Discrete inputs $x$ (Spam filtering)
+
+## GDA
+Assumes $p(x|y)$ is a multivariate **Gaussian Distribution**.
+
+> A **Gaussian distribution** (also called a **normal distribution**) is a continuous probability distribution that has the famous **bell curve** shape. See **Lecture 3: "Gaussian/Normal Distribution**
+
