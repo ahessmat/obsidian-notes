@@ -34,7 +34,11 @@ Consider 2 instantiations of this:
 * Discrete inputs $x$ (Spam filtering)
 
 ## GDA
-Assumes $p(x|y)$ is a multivariate **Gaussian Distribution**.
+Assumes $p(x|y)$ is a multivariate **Gaussian Distribution** $X \sim \mathcal{N}(\mu, \Sigma)$.
 
 > A **Gaussian distribution** (also called a **normal distribution**) is a continuous probability distribution that has the famous **bell curve** shape. See **Lecture 3: "Gaussian/Normal Distribution**
 
+In the lecture video, instructor Ma gives an example of $y \in \{0,1\}$ with cancer classification (i.e. given various samples, are they classified as cancerous/benign). Given this example, we'd need to solve:
+
+* $x|y = 0$
+* $x|y = 1$
