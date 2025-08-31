@@ -209,4 +209,4 @@ Cross Entropy &= - \sum_{i=1}^{k} P(y = k) \, \log \hat{P}(y) \\
 &= \frac{exp(\theta^T_ix)}{\sum_{j=1}^{K}exp(\theta^T_jx)}
 \end{aligned}
 $$
-Where a **logit** $= -log(\hat{P}(y_i))$ and the last 
+Where a **logit** $= -log(\hat{P}(y_i))$ 
