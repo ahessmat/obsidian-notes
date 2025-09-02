@@ -47,46 +47,14 @@ pip install --upgrade pip
 # Install core Python packages
 pip install requests aiohttp python-dotenv colorama tabulate
 
-# Install LLM API clients (cloud-based)
+# Install LLM API clients
 pip install openai anthropic google-generativeai
-
-# Install local model dependencies
-pip install transformers torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-pip install accelerate bitsandbytes optimum
-pip install llama-cpp-python sentence-transformers
-
-# For Ollama integration
-pip install ollama
-
-# For vLLM (high-performance local serving)
-pip install vllm
-
-# For quantized models (GPTQ/AWQ)
-pip install auto-gptq autoawq
-
-# For GGUF format models (efficient CPU inference)
-pip install ctransformers
 
 # Install additional utilities
 pip install psutil numpy pandas matplotlib seaborn
 
 # Save requirements
 pip freeze > requirements.txt
-```
-
-### 1.2.1 GPU Dependencies (Optional - for faster inference)
-
-If you have an NVIDIA GPU available in your VM:
-
-```bash
-# Check if CUDA is available
-nvidia-smi
-
-# Install CUDA-enabled PyTorch (if GPU available)
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-
-# Install CUDA-enabled dependencies
-pip install xformers flash-attn
 ```
 
 ### 1.2.2 Install Ollama (Recommended for Local Models)
@@ -111,7 +79,6 @@ ollama pull qwen:7b-chat             # ~4.1GB
 # List installed models
 ollama list
 ```
-
 ### 1.3 Verify Security Tools
 
 Most tools should already be available in Kali, but verify:
@@ -429,29 +396,13 @@ def get_available_llms():
     # Add mock LLM for testing
     llms.append(("mock", MockLLMInterface("mock-test")))
     
-    # Add cloud LLMs if API keys are available
+    # Add real LLMs if API keys are available
     if os.getenv("OPENAI_API_KEY") and "your_openai_key_here" not in os.getenv("OPENAI_API_KEY"):
         llms.append(("gpt4", OpenAIInterface("gpt-4")))
         llms.append(("gpt35", OpenAIInterface("gpt-3.5-turbo")))
     
     if os.getenv("ANTHROPIC_API_KEY") and "your_anthropic_key_here" not in os.getenv("ANTHROPIC_API_KEY"):
         llms.append(("claude", AnthropicInterface("claude-3-sonnet-20240229")))
-    
-    # Add local models
-    try:
-        from local_llm_interfaces import LocalModelManager
-        manager = LocalModelManager()
-        available_local = manager.list_available()
-        
-        # Add discovered local models
-        for model_key in available_local.keys():
-            interface = manager.get_interface(model_key)
-            if interface:
-                llms.append((model_key, interface))
-    except ImportError:
-        print("⚠️  Local model interfaces not available")
-    except Exception as e:
-        print(f"⚠️  Error loading local models: {e}")
     
     return llms
 
