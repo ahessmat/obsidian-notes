@@ -79,6 +79,36 @@ ollama pull qwen:7b-chat             # ~4.1GB
 # List installed models
 ollama list
 ```
+
+Note: Virtualbox does not feature GPU passthrough, so it made more sense to run/host ollama locally on the host, then connect to it from the VM. After downloading ollama to the host, I opened `cmd` and set the OLLAMA_HOST environment variable to point to 0.0.0.0:
+
+```cmd
+set OLLAMA_HOST=0.0.0.0
+ollama serve
+```
+
+I could then test connectivity from the VM to the host by way of:
+
+```bash
+curl http://<WINDOWS IPv4>:11434/api/tags
+```
+
+And can programmatically reach via this python script:
+
+```python
+import ollama
+
+client = ollama.Client(host='http://192.168.1.11:11434')
+response = client.chat(
+    model='deepseek-r1:8b',
+    messages=[{'role': 'user', 'content': 'Hello from Kali VM!'}]
+)
+
+print(response['message']['content'])
+
+```
+
+
 ### 1.3 Verify Security Tools
 
 Most tools should already be available in Kali, but verify:
