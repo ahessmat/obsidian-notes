@@ -36,3 +36,28 @@ First, we pull the image
 ```bash
 docker pull alpine
 ```
+
+Now test:
+
+```bash
+docker container run alpine echo 'Hello World!'
+```
+
+The above command created a container from the `alpine` image and ran the echo command within it.
+
+## List Images
+```bash
+docker images
+```
+
+### List Containers
+
+This lists currently running containers
+```bash
+docker container ls
+```
+
+This lists all containers, running or not
+```bash
+docker container ls -a
+```
