@@ -41,6 +41,10 @@ conda install -y jupyter jupyterlab notebook ipykernel
 conda install -y -c conda-forge numpy scipy pandas scikit-learn matplotlib seaborn transformers datasets tokenizers accelerate evaluate optimum huggingface_hub nltk category_encoders
 ```
 
+```powershell
+conda install -c conda-forge xgboost
+```
+
 And then, finally, we get pytorch installed:
 
 ```python
